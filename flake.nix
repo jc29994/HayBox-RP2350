@@ -6,13 +6,29 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        devShells.default = with pkgs;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        devShells.default =
+          with pkgs;
           mkShell {
-            buildInputs = [ python3 platformio python312Packages.grpcio-tools ];
+            buildInputs = [
+              python3
+              platformio
+              python312Packages.grpcio-tools
+              clang-tools
+            ];
           };
-      });
+      }
+    );
 }

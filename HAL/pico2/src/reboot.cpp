@@ -3,9 +3,9 @@
 #include "stdlib.hpp"
 
 void reboot_firmware() {
-    rp2350.reboot();
+    rp2040.reboot();
 }
 
 void reboot_bootloader() {
-    rp2350.rebootToBootloader();
+    rp2040.rebootToBootloader();
 }

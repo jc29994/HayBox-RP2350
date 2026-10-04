@@ -11,6 +11,8 @@
 #include "reboot.hpp"
 #include "stdlib.hpp"
 
+#include "boards/pico2.h"
+
 #include <config.pb.h>
 
 Config config = default_config;
