@@ -18,34 +18,34 @@
 Config config = default_config;
 
 GpioButtonMapping button_mappings[] = {
-    { BTN_LF1, 2  },
-    { BTN_LF2, 3  },
-    { BTN_LF3, 4  },
-    { BTN_LF4, 5  },
-    { BTN_LF5, 1  },
+    { BTN_LF1, 6  },
+    { BTN_LF2, 4  },
+    { BTN_LF3, 3  },
+    { BTN_LF4, 2  },
+    { BTN_LF5, 5  },
 
-    { BTN_LT1, 6  },
-    { BTN_LT2, 7  },
+    { BTN_LT1, 28 },
+    { BTN_LT2, 27 },
+    { BTN_LT3, 22 },
+    { BTN_LT4, 21 },
 
-    { BTN_MB1, 0  },
-    { BTN_MB2, 10 },
-    { BTN_MB3, 11 },
+    { BTN_MB1, 7  },
 
-    { BTN_RT1, 14 },
-    { BTN_RT2, 15 },
-    { BTN_RT3, 13 },
-    { BTN_RT4, 12 },
-    { BTN_RT5, 16 },
+    { BTN_RT1, 19 },
+    { BTN_RT2, 17 },
+    { BTN_RT3, 18 },
+    { BTN_RT4, 16 },
+    { BTN_RT5, 20 },
 
-    { BTN_RF1, 26 },
-    { BTN_RF2, 21 },
-    { BTN_RF3, 19 },
-    { BTN_RF4, 17 },
+    { BTN_RF1, 12 },
+    { BTN_RF2, 13 },
+    { BTN_RF3, 14 },
+    { BTN_RF4, 15 },
 
-    { BTN_RF5, 27 },
-    { BTN_RF6, 22 },
-    { BTN_RF7, 20 },
-    { BTN_RF8, 18 },
+    { BTN_RF5, 8  },
+    { BTN_RF6, 9  },
+    { BTN_RF7, 10 },
+    { BTN_RF8, 11 },
 };
 const size_t button_count = sizeof(button_mappings) / sizeof(GpioButtonMapping);
 
@@ -80,7 +80,7 @@ void setup() {
     // Turn on LED to indicate firmware booted.
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-    gpio_put(PICO_DEFAULT_LED_PIN, 1);
+    // gpio_put(PICO_DEFAULT_LED_PIN, 1);
 
     // Attempt to load config, or write default config to flash if failed to load config.
     if (!persistence.LoadConfig(config)) {
@@ -120,5 +120,6 @@ void setup1() {
 void loop1() {
     if (backends != nullptr) {
         gpio_input.UpdateInputs(backends[0]->GetInputs());
+        gpio_put(PICO_DEFAULT_LED_PIN, backends[0]->GetInputs().mb1);
     }
 }

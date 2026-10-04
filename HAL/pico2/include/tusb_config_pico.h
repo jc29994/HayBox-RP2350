@@ -22,8 +22,8 @@
    IN THE SOFTWARE.
 */
 
-#ifndef _TUSB_CONFIG_RP2350_H_
-#define _TUSB_CONFIG_RP2350_H_
+#ifndef _TUSB_CONFIG_RP2040_H_
+#define _TUSB_CONFIG_RP2040_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -44,7 +44,7 @@ extern "C" {
 #endif
 
 #ifndef CFG_TUSB_MCU
-#define CFG_TUSB_MCU OPT_MCU_RP2350
+#define CFG_TUSB_MCU OPT_MCU_RP2040
 #endif
 #define CFG_TUSB_OS OPT_OS_PICO
 
@@ -110,4 +110,4 @@ extern int serial1_printf(const char *__restrict __format, ...);
 }
 #endif
 
-#endif /* _TUSB_CONFIG_RP2350_H_ */
+#endif /* _TUSB_CONFIG_RP2040_H_ */
