@@ -8,24 +8,24 @@
 Ultimate::Ultimate() : ControllerMode() {}
 
 void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rt1;
-    outputs.b = inputs.rf1;
+    outputs.a = inputs.rf1;
+    outputs.b = inputs.rf3;
     outputs.x = inputs.rf2;
-    outputs.y = inputs.rf6;
-    outputs.buttonL = inputs.rf7;
-    outputs.buttonR = inputs.rf3 || inputs.rf8;
-    outputs.triggerLDigital = inputs.lf4;
-    outputs.triggerRDigital = inputs.rf5;
+    outputs.y = inputs.rf4;
+    outputs.buttonL = inputs.lf2;
+    outputs.buttonR = inputs.rf7 || inputs.rf6;
+    outputs.triggerLDigital = inputs.lf4 || inputs.rt5;
+    outputs.triggerRDigital = inputs.rf8;
     outputs.start = inputs.mb1;
-    outputs.select = inputs.mb3;
-    outputs.home = inputs.mb2;
+    // outputs.select = inputs.rf5;
+    outputs.home = inputs.rf5;
 
     // Turn on D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
     if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
-        outputs.dpadUp = inputs.rt4;
+        outputs.dpadUp = inputs.rt3;
         outputs.dpadDown = inputs.rt2;
-        outputs.dpadLeft = inputs.rt3;
-        outputs.dpadRight = inputs.rt5;
+        outputs.dpadLeft = inputs.rt1;
+        outputs.dpadRight = inputs.rt4;
     }
 }
 
@@ -34,19 +34,19 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     UpdateDirections(
         inputs.lf3, // Left
         inputs.lf1, // Right
-        inputs.lf2, // Down
-        inputs.rf4, // Up
-        inputs.rt3, // C-Left
-        inputs.rt5, // C-Right
+        inputs.lt4, // Down
+        inputs.lf5, // Up
+        inputs.rt1, // C-Left
+        inputs.rt4, // C-Right
         inputs.rt2, // C-Down
-        inputs.rt4, // C-Up
+        inputs.rt3, // C-Up
         ANALOG_STICK_MIN,
         ANALOG_STICK_NEUTRAL,
         ANALOG_STICK_MAX,
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf5;
+    bool shield_button_pressed = inputs.rf4 || inputs.rf7;
 
     if (inputs.lt1) {
         // MX + Horizontal = 6625 = 53

@@ -126,6 +126,8 @@ void init_primary_backend(
                 primary_backend = new DInputBackend(inputs, input_sources, input_source_count);
             }
             break;
+        case COMMS_BACKEND_UNSPECIFIED: // Fall back to switch if invalid backend selected.
+        default:
         case COMMS_BACKEND_NINTENDO_SWITCH:
             if (primary_backend == nullptr) {
                 NintendoSwitchBackend::RegisterDescriptor();
@@ -170,9 +172,7 @@ void init_primary_backend(
         //         pinout.nes_latch
         //     );
         //     break;
-        case COMMS_BACKEND_UNSPECIFIED: // Fall back to configurator if invalid backend selected.
         case COMMS_BACKEND_CONFIGURATOR:
-        default:
             delete primary_backend;
             Serial.begin(115200);
             primary_backend =

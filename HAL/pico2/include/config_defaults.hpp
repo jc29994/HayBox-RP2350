@@ -101,7 +101,7 @@ const Config default_config = {
             .keyboard_mode_config = 1,
         },
     },
-    .communication_backend_configs_count = 8,
+    .communication_backend_configs_count = 4,
     .communication_backend_configs = {
         // CommunicationBackendConfig {
         //     .backend_id = COMMS_BACKEND_XINPUT,
