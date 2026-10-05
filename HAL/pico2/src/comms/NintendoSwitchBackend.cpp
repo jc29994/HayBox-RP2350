@@ -73,6 +73,7 @@ NintendoSwitchBackend::NintendoSwitchBackend(
     size_t input_source_count
 )
     : CommunicationBackend(inputs, input_sources, input_source_count) {
+    USBDevice.begin(); // Reset USBDevice to ensure we get interface number 0
     USBDevice.setManufacturerDescriptor("HORI CO.,LTD.");
     USBDevice.setProductDescriptor("POKKEN CONTROLLER");
     USBDevice.setSerialDescriptor("1.0");

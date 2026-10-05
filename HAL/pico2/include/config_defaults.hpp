@@ -177,8 +177,8 @@ const Config default_config = {
             },
         },
     },
-    .default_backend_config = 1,
-    .default_usb_backend_config = 1,
+    .default_backend_config = 2,
+    .default_usb_backend_config = 2,
     .melee_options = {
         .crouch_walk_os = false,
         .disable_ledgedash_socd_override = false,
