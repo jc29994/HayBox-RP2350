@@ -1,0 +1,11 @@
+[language-server.clangd]
+command = "clangd"
+args = [
+  "--enable-config",
+  "--query-driver=/home/jasper/.platformio/packages/toolchain-rp2040-earlephilhower/bin/arm-none-eabi-g++"
+]
+required-root-patterns = ["platformio.ini"]
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]

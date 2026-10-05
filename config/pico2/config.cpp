@@ -7,7 +7,7 @@
 #include "core/pinout.hpp"
 #include "core/state.hpp"
 #include "input/DebouncedGpioButtonInput.hpp"
-#include "input/NunchukInput.hpp"
+// #include "input/NunchukInput.hpp"
 #include "reboot.hpp"
 #include "stdlib.hpp"
 

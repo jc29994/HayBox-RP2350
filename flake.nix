@@ -26,7 +26,8 @@
               python3
               platformio
               python312Packages.grpcio-tools
-              clang-tools
+              # clang-tools
+              llvmPackages.clang-unwrapped
             ];
           };
       }

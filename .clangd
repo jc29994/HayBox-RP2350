@@ -1,0 +1,5 @@
+CompileFlags:
+  Add: 
+    - "-mcpu=cortex-m33" # Change to cortex-m0plus if using RP2040 / Pico 1
+    - "-isystem/home/jasper/.platformio/packages/toolchain-rp2040-earlephilhower/lib/gcc/arm-none-eabi/16.1.0/include"
+    - "-cxx-isystem/home/jasper/.platformio/packages/toolchain-rp2040-earlephilhower/lib/gcc/arm-none-eabi/16.1.0/include"

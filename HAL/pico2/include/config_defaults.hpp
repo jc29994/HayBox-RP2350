@@ -103,10 +103,10 @@ const Config default_config = {
     },
     .communication_backend_configs_count = 8,
     .communication_backend_configs = {
-        CommunicationBackendConfig {
-            .backend_id = COMMS_BACKEND_XINPUT,
-            .default_mode_config = 1,
-        },
+        // CommunicationBackendConfig {
+        //     .backend_id = COMMS_BACKEND_XINPUT,
+        //     .default_mode_config = 1,
+        // },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_DINPUT,
             .default_mode_config = 1,
@@ -123,23 +123,23 @@ const Config default_config = {
             .backend_id = COMMS_BACKEND_GAMECUBE,
             .default_mode_config = 1,
         },
-        CommunicationBackendConfig {
-            .backend_id = COMMS_BACKEND_N64,
-            .default_mode_config = 1,
-            .activation_binding = { BTN_RT3 },
-        },
-        CommunicationBackendConfig {
-            .backend_id = COMMS_BACKEND_NES,
-            .default_mode_config = 1,
-            .activation_binding_count = 1,
-            .activation_binding = { BTN_LT1 },
-        },
-        CommunicationBackendConfig {
-            .backend_id = COMMS_BACKEND_SNES,
-            .default_mode_config = 1,
-            .activation_binding_count = 1,
-            .activation_binding = { BTN_LT2 },
-        },
+        // CommunicationBackendConfig {
+        //     .backend_id = COMMS_BACKEND_N64,
+        //     .default_mode_config = 1,
+        //     .activation_binding = { BTN_RT3 },
+        // },
+        // CommunicationBackendConfig {
+        //     .backend_id = COMMS_BACKEND_NES,
+        //     .default_mode_config = 1,
+        //     .activation_binding_count = 1,
+        //     .activation_binding = { BTN_LT1 },
+        // },
+        // CommunicationBackendConfig {
+        //     .backend_id = COMMS_BACKEND_SNES,
+        //     .default_mode_config = 1,
+        //     .activation_binding_count = 1,
+        //     .activation_binding = { BTN_LT2 },
+        // },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_CONFIGURATOR,
             .activation_binding_count = 1,
