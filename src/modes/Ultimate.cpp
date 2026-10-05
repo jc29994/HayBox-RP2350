@@ -8,17 +8,17 @@
 Ultimate::Ultimate() : ControllerMode() {}
 
 void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rf1;
-    outputs.b = inputs.rf3;
+    outputs.a = inputs.rt4;
+    outputs.b = inputs.rt2;
     outputs.x = inputs.rf2;
-    outputs.y = inputs.rf4;
+    outputs.y = inputs.rf4 || inputs.rf8 || inputs.rt3;
     outputs.buttonL = inputs.lf2;
-    outputs.buttonR = inputs.rf7 || inputs.rf6;
-    outputs.triggerLDigital = inputs.lf4 || inputs.rt5;
-    outputs.triggerRDigital = inputs.rf8;
+    outputs.buttonR = inputs.rt1;
+    outputs.triggerLDigital = inputs.rf5;
+    outputs.triggerRDigital = inputs.rf7;
     outputs.start = inputs.mb1;
     // outputs.select = inputs.rf5;
-    outputs.home = inputs.rf5;
+    // outputs.home = inputs.rf5;
 
     // Turn on D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
     if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
@@ -36,10 +36,10 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf1, // Right
         inputs.lt4, // Down
         inputs.lf5, // Up
-        inputs.rt1, // C-Left
-        inputs.rt4, // C-Right
-        inputs.rt2, // C-Down
-        inputs.rt3, // C-Up
+        inputs.rf1, // C-Left
+        inputs.rf3, // C-Right
+        inputs.rt5, // C-Down
+        inputs.rf6, // C-Up
         ANALOG_STICK_MIN,
         ANALOG_STICK_NEUTRAL,
         ANALOG_STICK_MAX,
@@ -244,13 +244,13 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.rightStickY = 128 + (directions.cy * 68);
     }
 
-    if (inputs.lf4) {
-        outputs.triggerLAnalog = 140;
-    }
+    // if (inputs.lf4) {
+    //     outputs.triggerLAnalog = 140;
+    // }
 
-    if (inputs.rf5) {
-        outputs.triggerRAnalog = 140;
-    }
+    // if (inputs.rf5) {
+    //     outputs.triggerRAnalog = 140;
+    // }
 
     // Shut off C-stick when using D-Pad layer.
     if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
